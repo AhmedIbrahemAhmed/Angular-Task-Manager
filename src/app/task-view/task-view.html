@@ -1,0 +1,29 @@
+<task-input (TaskEvent)="onTaskAdded($event)"></task-input>
+ <div class="tabs-container">
+    <button (click)="setTab('all')" [class.active]="currentTab === 'all'">
+        All Tasks
+    </button>
+    <button (click)="setTab('pending')" [class.active]="currentTab === 'pending'">
+        Pending
+    </button>
+    <button (click)="setTab('completed')" [class.active]="currentTab === 'completed'">
+        Completed
+    </button>
+  </div>
+<div class="list-container">
+
+ @switch (currentTab) {
+      @case ('all') {
+        <app-all-tasks [tasks]="tasks" (tasksUpdated)="onTasksUpdate($event)" (taskDeleted)="onTasksDelete($event)"/>
+      }
+      @case ('pending') {
+        <app-pending-tasks [tasks]="tasks" (tasksUpdated)="onTasksUpdate($event)" (taskDeleted)="onTasksDelete  ($event)"/>
+      }
+      @case ('completed') {
+        <app-completed-tasks [tasks]="tasks" (tasksUpdated)="onTasksUpdate($event)" (taskDeleted)="onTasksDelete($event)"/>
+      }
+      @default {
+        <p>Select a tab to view content.</p>
+      }
+    }
+</div>

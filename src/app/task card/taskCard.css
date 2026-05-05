@@ -1,0 +1,77 @@
+:host {
+  display: block; /* Ensures the component respects the grid container */
+}
+
+.task-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header section */
+.task-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #1a1a1b;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+/* Detail text styling */
+.task-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Specific labels */
+.task-card p strong {
+  color: #333;
+  width: 80px;
+  display: inline-block;
+}
+
+/* Button Group Styling */
+.button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+}
+
+button:active { transform: scale(0.95); }
+
+/* Button Variants */
+.btn-edit { background: #e3f2fd; color: #1976d2; }
+.btn-delete { background: #ffebee; color: #d32f2f; }
+.btn-complete { background: #e8f5e9; color: #2e7d32; }
+
+/* The container for task-input when editing */
+.edit-form-overlay {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #ccc;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

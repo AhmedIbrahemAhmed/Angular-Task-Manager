@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "username": "ahmed",
+      "email": "ahmedelnile44@gmail.com",
+      "password": "ahm12345678",
+      "id": "UjDRxUfTW3s"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "Pc-nYhAd6to",
+      "title": "test2",
+      "description": "desc",
+      "dueDate": "2026-05-19",
+      "priority": "medium",
+      "category": "work",
+      "status": "pending"
+    },
+    {
+      "id": "OteJMumQi50",
+      "title": "test",
+      "description": "desc",
+      "dueDate": "2026-05-19",
+      "priority": "low",
+      "category": "work",
+      "status": "completed"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

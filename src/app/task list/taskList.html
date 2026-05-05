@@ -1,0 +1,11 @@
+<div class="list-container">
+    @for (task of tasks; track task.id) {
+        <task-card 
+            [task]="task" 
+            (taskDeleted)="onTaskDeleted($event)" 
+            (taskUpdated)="onTaskUpdated($event)">
+        </task-card>
+    } @empty {
+        <p class="empty-message">No tasks found!</p>
+    }
+</div>
