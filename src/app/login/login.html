@@ -1,0 +1,16 @@
+<form #form="ngForm">
+    <label for="email" >Email:</label>
+    <input type="text" id="email" name="email" required ngModel #email="ngModel" pattern="[a-zA-Z0-9._%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}"><br>
+    @if (email.errors?.['required'] && email.dirty) {
+        <span class="error">Email is required</span>
+    }
+    @if (email.errors?.['pattern'] && email.dirty) {
+        <span class="error">Invalid email format</span>
+    }
+    <label for="password" >Password:</label>
+    <input type="password" id="password" name="password" required ngModel #password="ngModel"><br>
+    @if (password.errors?.['required'] && password.dirty) {
+        <span class="error">Password is required</span>
+    }
+    <input type="submit" value="Login"  [disabled]="form.invalid" (click)="onSubmit(form)">
+</form>

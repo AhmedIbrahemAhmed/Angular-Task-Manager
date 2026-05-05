@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username"><br>
+    @if (form.get("username")?.invalid && form.get("username")?.dirty) {
+      <div class="error">Username is required.</div>
+    }
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email"><br>
+    @if (form.get("email")?.invalid && form.get("email")?.dirty) {
+      <div class="error">Please enter a valid email address.</div>
+    }
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password"><br>
+    @if (form.get("password")?.invalid && form.get("password")?.dirty) {
+      <div class="error">Password is required and must be at least 8 characters long.</div>
+    }
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" formControlName="confirmPassword"><br>
+    @if (form.get("confirmPassword")?.invalid && form.get("confirmPassword")?.dirty) {
+      <div class="error">Confirm Password is required and must be at least 8 characters long.</div>
+    }
+    @if (form.errors?.['passwordMismatch'] && form.get("confirmPassword")?.valid) {
+      <div class="error">Passwords do not match.</div>
+    }
+    <input type="submit" value="Sign Up" [disabled]="form.invalid">
+    
+
+</form>

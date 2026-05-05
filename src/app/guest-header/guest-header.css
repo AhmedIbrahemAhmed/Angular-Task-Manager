@@ -1,0 +1,96 @@
+/* Ensure the Angular component host takes up space */
+:host {
+  display: block;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Keeps header above page content */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* pointer-events: auto; ensures clicks are registered */
+  pointer-events: auto; 
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #3f51b5;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 5px 0; /* Larger click area */
+  cursor: pointer;
+}
+
+/* Hover effect */
+.nav-links li a:hover {
+  color: #3f51b5;
+}
+
+/* Underline animation */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #3f51b5;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Active Route Styling (Optional but recommended) */
+/* Angular automatically adds this class if you use [routerLinkActive] */
+.nav-links li a.active-link {
+  color: #3f51b5;
+  font-weight: 700;
+}
+
+.nav-links li a.active-link::after {
+  width: 100%;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nav-links {
+    gap: 1.2rem;
+    justify-content: center;
+  }
+}
+
+

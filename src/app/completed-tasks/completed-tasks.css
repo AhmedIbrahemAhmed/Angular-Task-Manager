@@ -1,0 +1,23 @@
+/* completed-tasks.css */
+:host {
+  display: block;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  color: #2e7d32; /* Success Green */
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* If you want to style the list inside the child specifically */
+app-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

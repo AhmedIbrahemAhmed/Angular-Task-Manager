@@ -1,0 +1,41 @@
+
+<form>
+    <div> 
+        <label for="taskTitle">Task Title</label>
+        <input type="text" placeholder="Task Title" [(ngModel)]="localInput.title" name="taskTitle">
+    </div>
+    <div>
+    <label for="taskDescription">Task Description</label>
+    <input type="text" placeholder="Task Description" [(ngModel)]="localInput.description" name="taskDescription">
+    </div>
+    <div>
+    <label for="Priority" >Priority</label>
+    <select name="Priority" id="Priority" [(ngModel)]="localInput.priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+    </select>
+    </div>
+    <div>
+    <label for="DueDate">Due Date</label>
+    <input type="date" id="DueDate" name="DueDate" [(ngModel)]="localInput.dueDate">
+    </div>
+    <div>
+    <label for="Category" >Category</label>
+    <select name="Category" id="Category" [(ngModel)]="localInput.category">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="study">Study</option>
+    </select>
+    <div><label for="Status" >Status</label>
+        <select name="Status" id="Status" [(ngModel)]="localInput.status">
+            <option value="pending">pending</option>
+            <option value="in-progress">in-progress</option>
+            <option value="completed">completed</option>
+        </select>
+    </div>
+    
+
+    </div>
+    <button type="submit" (click)="addTask()">{{ localInput.id === '' ? 'Add New Task' : 'Update Task' }}</button>
+</form>
