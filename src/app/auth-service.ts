@@ -9,6 +9,10 @@ export class AuthService {
   private http = inject(HttpClient);
   private readonly API_URL = 'http://localhost:3000/users';
 
+  constructor() {
+    const user = localStorage.getItem('user');
+    user? this.loggedIn = true: false ;
+  }
   setLoggedIn(val:boolean){
     this.loggedIn = val ;
   }
@@ -28,6 +32,7 @@ export class AuthService {
 
   logOut(){
     this.loggedIn = false ;
+    localStorage.removeItem('user');
   }
   
   signUp(user:User){
@@ -38,6 +43,11 @@ export class AuthService {
     const params = new HttpParams()
     .set('id', id)
     return this.http.get<User[]>(this.API_URL, { params });
+  }
+
+  setLoginSession(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
+    this.loggedIn = true;
   }
 
 }

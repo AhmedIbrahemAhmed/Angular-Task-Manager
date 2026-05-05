@@ -46,9 +46,8 @@ export class SignUp {
       this.authService.signUp(user).subscribe({
       next: (res) => {
         this.authService.setLoggedIn(true);
-
-        localStorage.setItem('currentUser', JSON.stringify(res));
-        this.router.navigate(['/home']);
+        this.authService.setLoginSession(res);
+        this.router.navigate(['/tasks']);
       },
       error: (err) => {
         console.error('Registration failed', err);

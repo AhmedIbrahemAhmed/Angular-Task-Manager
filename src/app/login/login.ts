@@ -25,9 +25,9 @@ export class Login {
         if(users.length > 0){
           const loggedInUser = users[0];
           this.authService.setLoggedIn(true);
-          localStorage.setItem('currentUser', JSON.stringify(loggedInUser));
+          this.authService.setLoginSession(loggedInUser);
           
-          this.router.navigate(['/home']);
+          this.router.navigate(['/tasks']);
         }
         else{
           console.log("failed to log in")

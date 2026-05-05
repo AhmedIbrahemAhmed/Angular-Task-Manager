@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { RouterLink, RouterLinkActive  } from "@angular/router";
+import { AuthService } from "../auth-service";
 
 @Component({
     selector: 'app-header',
@@ -8,5 +9,9 @@ import { RouterLink, RouterLinkActive  } from "@angular/router";
     imports: [RouterLink, RouterLinkActive]
 }) 
 export class Header{
+    private auth = inject(AuthService);
+    logOut() {
+        this.auth.logOut();
+    }
     
 }
