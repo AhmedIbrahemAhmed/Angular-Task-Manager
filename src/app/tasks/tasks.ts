@@ -23,6 +23,7 @@ export class Tasks {
       const index = this.taskService.tasks.findIndex(t => t.id === task.id);
       if (index !== -1) {
         this.taskService.tasks[index] = updated;
+        this.taskService.tasks = [...this.taskService.tasks];
       }
     });
   }
